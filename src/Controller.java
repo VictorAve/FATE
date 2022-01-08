@@ -1,11 +1,17 @@
 import java.util.Random;
 
 public class Controller {
+	
 	public static void main(String args[]) {
-		Random rand = new Random();
+		Display canvas = new Display();
 		Dice myDice = new Dice();
-		int[] testRoll = myDice.rollFour(rand);
-		System.out.println(String.format("The test roll got a total of %1d with individual rolls of [%1d, %1d, %1d, %1d]",
-				testRoll[4], testRoll[0], testRoll[1], testRoll[2], testRoll[3]));
+		Random rand = new Random();
+		
+		String action = canvas.greet();
+		System.out.println(String.format("You chose \'%s\'", action));
+		int[] testResults = myDice.rollFour(rand);
+		System.out.println(String.format("The test roll got a total of %1d from these four rolls: [%1d %1d %1d %1d]",
+				testResults[4], testResults[0], testResults[1], testResults[2], testResults[3]));
+		
 	}
 }
